@@ -1,0 +1,66 @@
+{
+  "sources": [
+    {
+      "id": "store_front_main",
+      "name": "Main Store Front Camera",
+      "type": "RTSP",
+      "url": "rtsp://camera1.local:554/stream",
+      "username": "admin",
+      "password": "camera_password",
+      "fps": 30,
+      "resolution": [1920, 1080],
+      "format": "BGR",
+      "buffer_capacity": 1000,
+      "connect_timeout_seconds": 10,
+      "read_timeout_seconds": 30,
+      "reconnect_attempts": 5,
+      "reconnect_delay_ms": 2000,
+      "reconnect_backoff_factor": 1.5,
+      "enable_frame_dedup": true,
+      "enable_keyframe_priority": true,
+      "health_check_interval_seconds": 30
+    },
+    {
+      "id": "checkout_counter",
+      "name": "Checkout Counter Camera",
+      "type": "RTSP",
+      "url": "rtsp://camera2.local:554/stream",
+      "username": "admin",
+      "password": "camera_password",
+      "fps": 30,
+      "resolution": [1920, 1080],
+      "format": "BGR",
+      "buffer_capacity": 800,
+      "reconnect_attempts": 5,
+      "reconnect_delay_ms": 2000
+    },
+    {
+      "id": "shelf_monitor",
+      "name": "Shelf Monitoring Camera",
+      "type": "RTSP",
+      "url": "rtsp://camera3.local:554/stream",
+      "fps": 15,
+      "resolution": [1280, 720],
+      "format": "BGR",
+      "buffer_capacity": 500,
+      "reconnect_attempts": 3
+    },
+    {
+      "id": "entrance_webcam",
+      "name": "Entrance Webcam (Backup)",
+      "type": "WEBCAM",
+      "device_id": 0,
+      "fps": 15,
+      "resolution": [1280, 720],
+      "format": "BGR",
+      "buffer_capacity": 300
+    }
+  ],
+  "gpu_acceleration": true,
+  "gpu_device_id": 0,
+  "gpu_memory_fraction": 0.5,
+  "max_concurrent_sources": 10,
+  "health_check_interval_seconds": 30,
+  "metrics_publish_interval_seconds": 10,
+  "log_level": "INFO"
+}

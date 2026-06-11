@@ -1,0 +1,84 @@
+{
+  "yolo_config": {
+    "model_size": "n",
+    "confidence_threshold": 0.5,
+    "iou_threshold": 0.45,
+    "max_detections": 300,
+    "use_gpu": true,
+    "gpu_device_id": 0
+  },
+  "bytetrack_config": {
+    "track_thresh": 0.5,
+    "track_buffer": 30,
+    "match_thresh": 0.8,
+    "min_box_area": 10.0
+  },
+  "zones": [
+    {
+      "id": "shelf_produce",
+      "type": "shelf",
+      "name": "Produce Section",
+      "polygon": [
+        [100, 200],
+        [400, 200],
+        [400, 500],
+        [100, 500]
+      ],
+      "metadata": {
+        "department": "produce",
+        "items": ["fruits", "vegetables"]
+      }
+    },
+    {
+      "id": "shelf_dairy",
+      "type": "shelf",
+      "name": "Dairy Section",
+      "polygon": [
+        [500, 200],
+        [800, 200],
+        [800, 500],
+        [500, 500]
+      ],
+      "metadata": {
+        "department": "dairy",
+        "temperature": "cold"
+      }
+    },
+    {
+      "id": "checkout_counter",
+      "type": "checkout",
+      "name": "Checkout",
+      "polygon": [
+        [100, 550],
+        [800, 550],
+        [800, 700],
+        [100, 700]
+      ],
+      "metadata": {
+        "priority": "high"
+      }
+    },
+    {
+      "id": "entrance",
+      "type": "entrance",
+      "name": "Store Entrance",
+      "polygon": [
+        [600, 0],
+        [800, 0],
+        [800, 150],
+        [600, 150]
+      ],
+      "metadata": {
+        "priority": "high"
+      }
+    }
+  ],
+  "dwell_threshold_seconds": 2.0,
+  "dwell_check_interval_seconds": 1.0,
+  "publish_all_detections": true,
+  "publish_zone_events": true,
+  "publish_dwell_events": true,
+  "max_concurrent_frames": 10,
+  "gpu_memory_fraction": 0.5,
+  "log_level": "INFO"
+}

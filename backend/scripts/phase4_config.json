@@ -1,0 +1,97 @@
+{
+  "analytics": {
+    "interaction": {
+      "min_engagement_duration": 2.0,
+      "max_quick_browse_duration": 5.0,
+      "min_comparing_duration": 10.0,
+      "pickup_distance_threshold": 50,
+      "putback_confidence_threshold": 0.7,
+      "suspicious_behavior_threshold": 0.8,
+      "crowd_threshold": 5
+    },
+    "dwell_analytics": {
+      "min_dwell_time": 1.0,
+      "max_session_gap": 5.0,
+      "aggregate_intervals": [60, 300, 3600],
+      "track_history_size": 1000
+    },
+    "event_publishing": {
+      "publish_interactions": true,
+      "publish_anomalies": true,
+      "publish_analytics": true,
+      "batch_events": true,
+      "batch_size": 50,
+      "batch_timeout_ms": 1000,
+      "retry_count": 3,
+      "retry_delay_ms": 100
+    },
+    "overlay": {
+      "show_zones": true,
+      "show_interactions": true,
+      "show_dwell_time": true,
+      "show_alerts": true,
+      "show_behavior": true,
+      "zone_opacity": 0.3,
+      "interaction_radius": 10,
+      "text_scale": 0.6
+    },
+    "anomaly_detection_enabled": true,
+    "crowd_detection_enabled": true,
+    "heatmap_enabled": true,
+    "log_level": "INFO"
+  },
+  "shelf_zones": [
+    {
+      "zone_id": "dairy_shelf_1",
+      "name": "Dairy Section - Top Shelf",
+      "store_section": "dairy",
+      "shelf_level": "top",
+      "polygon": [[100, 100], [400, 100], [400, 200], [100, 200]],
+      "category": "milk",
+      "product_count": 15
+    },
+    {
+      "zone_id": "dairy_shelf_2",
+      "name": "Dairy Section - Middle Shelf",
+      "store_section": "dairy",
+      "shelf_level": "middle",
+      "polygon": [[100, 200], [400, 200], [400, 300], [100, 300]],
+      "category": "yogurt",
+      "product_count": 12
+    },
+    {
+      "zone_id": "produce_display",
+      "name": "Fresh Produce",
+      "store_section": "produce",
+      "shelf_level": "endcap",
+      "polygon": [[450, 100], [700, 100], [700, 350], [450, 350]],
+      "category": "vegetables",
+      "product_count": 30
+    },
+    {
+      "zone_id": "checkout",
+      "name": "Checkout Area",
+      "store_section": "checkout",
+      "shelf_level": "endcap",
+      "polygon": [[50, 400], [200, 400], [200, 550], [50, 550]],
+      "category": "impulse_items",
+      "product_count": 20
+    }
+  ],
+  "redis": {
+    "url": "redis://localhost:6379",
+    "streams": {
+      "interactions": "retail:interactions",
+      "anomalies": "retail:anomalies",
+      "crowd_events": "retail:crowd_events",
+      "engagement": "retail:engagement",
+      "analytics": "retail:analytics_metrics"
+    }
+  },
+  "detection": {
+    "model_size": "m",
+    "confidence_threshold": 0.5,
+    "iou_threshold": 0.45,
+    "gpu_device_id": 0
+  }
+}
